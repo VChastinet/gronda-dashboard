@@ -1,0 +1,60 @@
+.container {
+  min-height: 100vh;
+  max-width: 1200px;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.sideNav {
+  height: 100%;
+  flex-basis: 15%;
+}
+
+.section {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.section > div {
+  flex-basis: 80%;
+}
+
+.kpiContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tableContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.displayContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.critical {
+  margin-right: 35px;
+  padding-top: 2px;
+}
+
+@media only screen and (max-width: 900px) {
+  .section {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .kpiContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

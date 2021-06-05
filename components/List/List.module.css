@@ -1,0 +1,42 @@
+.list {
+  padding: 9px;
+  width: 11.3em;
+}
+
+.list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list button {
+  background: none;
+	color: inherit;
+	font: inherit;
+	border: none;
+	cursor: pointer;
+  line-height: 25px;
+  width: 100%;
+  text-align: left;
+}
+
+.list button:hover {
+  background-color: rgb(248, 248, 248);
+}
+
+.list button:active {
+  transform: translateY(1px);
+}
+
+@media only screen and (max-width: 900px) {
+  .list li {
+    display: inline;
+  }
+  .list {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .list button {
+    width: initial
+  }
+}

@@ -1,0 +1,18 @@
+.display {
+  margin-bottom: 30px;
+}
+.display label {
+  margin-right: 25px;
+}
+
+.display input {
+  cursor: default;
+  text-align: center;
+  padding: 1px;
+	color: inherit;
+	font: inherit;
+}
+
+.display input:focus-visible {
+  outline: 0;
+}

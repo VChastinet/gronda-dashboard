@@ -1,0 +1,94 @@
+.kpi {
+  border-radius: 2%;
+  width: 250px;
+  min-height: 125px;
+  padding: 20px;
+  display: inline-flex;
+  color: #fff;
+  position: relative;
+}
+
+.kpi p,
+.kpi h3 {
+  margin: 0;
+  line-height: 2em;
+}
+
+.kpi h3 {
+  font-size: 1.7em;
+}
+
+.kpi div {
+  align-self: center;
+}
+
+.active_source {
+  background-image: linear-gradient(to right, #f6bf99, #f29d99);
+}
+.weekly_active {
+  background-image: linear-gradient(to right, #a7cdf5, #669ce8);
+}
+.nps {
+  background-image: linear-gradient(to right, #b8e9e5, #76d0be);
+}
+
+.bigCircle {
+  height: 110px;
+  width: 120px;
+  background-color: #fff;
+  opacity: 0.3;
+  border-top-left-radius: 100%;
+  position: absolute;
+  top: 50px;
+  left: 130px;
+}
+
+.smallCircle {
+  height: 78px;
+  width: 85px;
+  background-color: #fff;
+  opacity: 0.3;
+  border-bottom-left-radius: 100%;
+  position: absolute;
+  bottom: 80px;
+  left: 165px;
+}
+
+/* LOADING STYLE */
+.lds-dual-ring {
+  display: inline;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring-after {
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* END LOADING STYLE */
+
+@media only screen and (max-width: 900px) {
+  .kpi {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .smallCircle {
+    bottom: 65px;
+  }
+}
