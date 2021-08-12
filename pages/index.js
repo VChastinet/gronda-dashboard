@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 
 import { fetcher } from '../shared/util';
 import { DEFAULT_LIST_ITEM } from '../components/List/List';
-import { Display, List, Table, Kpi } from '../components';
+import { Display, Table, Kpi } from '../components';
 
 import {
   container,
-  sideNav,
   kpiContainer,
   section,
   critical,
@@ -44,12 +43,9 @@ export default function Dashboard({ companies }) {
   return (
     <main className={container}>
       <section className={section}>
-        <nav className={sideNav}>
-          <List type="filter" onClick={setFilter} />
-        </nav>
         <div>
           <div className={displayContainer}>
-            <Display type="filter" currentDisplay={filter.label} />
+            <Display type="filter" currentDisplay={filter.label} onClick={setFilter} />
           </div>
           <div className={kpiContainer}>
             <Kpi newCompany={companyId} newFilter={filter} companyData={companyData || companies[0].lastMonth} />
@@ -58,22 +54,20 @@ export default function Dashboard({ companies }) {
       </section>
 
       <section className={section}>
-        <nav className={sideNav}>
-          <List type="sort" onClick={setSort} />
-        </nav>
         <div>
           <div className={displayContainer}>
             <label title="highlight avg NPS lower than 50" className={critical}>
               <input onChange={handleChange} type="checkbox" />
               Show critical
             </label>
-            <Display type="sort" currentDisplay={sort.label} />
+            <Display type="sort" currentDisplay={sort.label} onClick={setSort} />
           </div>
           <div className={tableContainer}>
             <Table
               showCritical={critial}
               selectedCompany={companyId}
               sortOrder={sort.value}
+              filter={filter}
               companies={companies}
               onClick={setCompanyId}
             />

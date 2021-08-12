@@ -1,6 +1,10 @@
 .list {
   padding: 9px;
   width: 11.3em;
+  position: absolute;
+  z-index: 100;
+  background-color: #fff;
+  right: 0;
 }
 
 .list ul {
@@ -26,17 +30,4 @@
 
 .list button:active {
   transform: translateY(1px);
-}
-
-@media only screen and (max-width: 900px) {
-  .list li {
-    display: inline;
-  }
-  .list {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  .list button {
-    width: initial
-  }
 }

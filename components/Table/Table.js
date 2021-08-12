@@ -2,7 +2,14 @@ import React from 'react';
 
 import style, { table, visualId, active } from './Table.module.css';
 
-export const Table = ({ showCritical, selectedCompany, sortOrder, companies, onClick }) => {
+export const Table = ({
+  filter,
+  showCritical,
+  selectedCompany,
+  sortOrder,
+  companies,
+  onClick,
+}) => {
   const sortedCompanies = companies.sort((a, b) => {
     if (sortOrder.match('best')) {
       const [key] = sortOrder.split('_');
@@ -28,6 +35,13 @@ export const Table = ({ showCritical, selectedCompany, sortOrder, companies, onC
     return `${activeClass} ${criticalClass}`
   }
 
+  const filterToKey = ({ time_unit, time_unit_count }) => {
+    const timeUnitCountLabel = time_unit_count === '1' ? 'last' : 'current';
+    const timeUnitToLabel = time_unit.charAt(0).toUpperCase() + time_unit.toLowerCase().slice(1);
+    const key = `${timeUnitCountLabel}${timeUnitToLabel}`
+    return key;
+  }
+
   return (
     <table data-testid="table" className={table}>
       <thead className="u-bold">
@@ -43,7 +57,7 @@ export const Table = ({ showCritical, selectedCompany, sortOrder, companies, onC
         </tr>
       </thead>
       <tbody>
-        {sortedCompanies?.map(({ id, name, segment, contract, renewals, npsAvg, lastMonth }) => (
+        {sortedCompanies?.map(({ id, name, segment, contract, renewals, npsAvg, ...company }) => (
           <tr className={setClass(id, npsAvg)} onClick={() => handleClick(id)} key={id}>
             <td>
               <div style={{ backgroundColor: `#${id}` }} className={visualId}></div>
@@ -53,8 +67,8 @@ export const Table = ({ showCritical, selectedCompany, sortOrder, companies, onC
             <td>{contract}</td>
             <td>{renewals}</td>
             <td>{npsAvg}</td>
-            <td>{lastMonth.nps.last_period}</td>
-            <td>{lastMonth.nps.current_period}</td>
+            <td>{company[filterToKey(filter.value)].nps.last_period}</td>
+            <td>{company[filterToKey(filter.value)].nps.current_period}</td>
           </tr>
         ))}
       </tbody>

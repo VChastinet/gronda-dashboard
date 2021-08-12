@@ -1,5 +1,6 @@
 .display {
   margin-bottom: 30px;
+  position: relative;
 }
 .display label {
   margin-right: 25px;
@@ -11,8 +12,17 @@
   padding: 1px;
 	color: inherit;
 	font: inherit;
+  cursor: pointer;
 }
 
 .display input:focus-visible {
   outline: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.expand {
+  display: block;
 }
